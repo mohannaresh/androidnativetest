@@ -17,3 +17,4 @@ public class Utilities {
 	     driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));");
 	}
 }
+
