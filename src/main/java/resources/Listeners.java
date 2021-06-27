@@ -1,13 +1,14 @@
 package resources;
 
-import nativeapp.Base;
+import org.nativeapp.androidnativetest.Base;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+
 import java.io.IOException;
 
-public class Listeners implements ITestListener{
+public class Listeners implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
