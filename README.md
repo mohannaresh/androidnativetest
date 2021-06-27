@@ -1,4 +1,5 @@
 # androidnativetest
+**Note** --- Please select Master branch in the repo to view the codebase
 
 **Software Prerequisites :**
     1. Appium
