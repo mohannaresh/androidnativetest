@@ -29,14 +29,6 @@ public class ExtentManager {
 			extent.setAnalysisStrategy(AnalysisStrategy.TEST);
 			htmlReports.config().setReportName("Siddharth test Execution Report");
 			htmlReports.config().setTheme(Theme.STANDARD);
-			//htmlReports.config().setDocumentTitle("Siddharth Test Automation.");
-			try {
-				//extent.setSystemInfo("Executed By:", CommonUtils.getUserName());
-				//extent.setSystemInfo("From Machine: ", CommonUtils.getHostName());
-				//extent.setSystemInfo("From IP Address: ", CommonUtils.getIpAddress());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		return extent;
 	}
