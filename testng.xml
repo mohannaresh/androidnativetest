@@ -4,14 +4,11 @@
     <listeners>
         <listener class-name="resources.Listeners"/>
         <listener class-name="resources.ExtentReporterNG"/>
-
-
     </listeners>
 
     <test thread-count="5" name="Test">
         <classes>
-
-
+            <class name="com.nativeapptest.ReferenceAppTest"></class>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

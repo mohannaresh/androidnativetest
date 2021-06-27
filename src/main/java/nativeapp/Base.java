@@ -71,9 +71,9 @@ public class Base {
         return driver;
     }
 
-    public static void getScreenshot(String s) throws IOException {
-        File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrfile, new File(System.getProperty("user.dir") + "\\" + s + ".png"));
+    public static void getScreenshot(String testName) throws IOException {
+        File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenShotFile, new File(System.getProperty("user.dir") + "\\" + testName + ".png"));
     }
 }
 
