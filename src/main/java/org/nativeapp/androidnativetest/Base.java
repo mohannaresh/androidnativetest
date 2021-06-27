@@ -1,16 +1,16 @@
 package org.nativeapp.androidnativetest;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import resources.ExtentManager;
+import utilites.PropertyReader;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.URL;
@@ -20,6 +20,10 @@ import java.util.concurrent.TimeUnit;
 public class Base {
     public static AppiumDriverLocalService service;
     public static AndroidDriver<AndroidElement> driver;
+    public static ExtentReports extent;
+    public static ExtentTest childTest;
+    private static File propertyFile = new File(System.getProperty("user.dir") + "/propertyFiles");
+    private static String projectsetupFile = "project.properties";
 
     public AppiumDriverLocalService startServer() {
         boolean flag = checkIfServerIsRunnning(4723);
@@ -51,14 +55,13 @@ public class Base {
     }
 
     public static AndroidDriver<AndroidElement> capabilities(String appName) throws IOException, InterruptedException {
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//org//nativeapp//androidnativetest//global.properties");
-        Properties prop = new Properties();
-        prop.load(fis);
+        PropertyReader prop = new PropertyReader();
+        Properties property = prop.getProperty(propertyFile, projectsetupFile);
 
-        File appDir = new File("src");
-        File app = new File(appDir, (String) prop.get(appName));
+        File appDir = new File("apps//");
+        File app = new File(appDir, property.getProperty(appName));
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        String device = prop.getProperty("deviceName");
+        String device = property.getProperty("deviceName");
         if (device.contains("Emulator")) {
             startEmulator();
         }
@@ -71,9 +74,9 @@ public class Base {
         return driver;
     }
 
-    public static void getScreenshot(String testName) throws IOException {
-        File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenShotFile, new File(System.getProperty("user.dir") + "//" + testName + ".png"));
+    public void setStoryNumberForReporting(String testSuitName) {
+        extent = ExtentManager.getReporter();
+        childTest = extent.createTest(testSuitName);
     }
 }
 

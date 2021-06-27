@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,12 @@ import java.io.IOException;
 
 public class ReferenceAppTest extends Base {
     private HomePage homePage;
+
+    @BeforeClass
+    public void classSetup()
+    {
+        setStoryNumberForReporting("referenceAndroidAppTestSuit");
+    }
 
     @BeforeTest
     public void startAppiumServer() throws IOException, InterruptedException {
