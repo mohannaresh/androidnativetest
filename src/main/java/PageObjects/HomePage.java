@@ -27,8 +27,7 @@ public class HomePage {
 
     public String getTextFromMoreOptions() {
         driver.findElementByAccessibilityId(moreOptions).click();
-        String labelText = driver.findElement(settingsLabel).getText();
-        return labelText;
+        return driver.findElement(settingsLabel).getText();
     }
 
     public String getTextOnMessageBox() {
