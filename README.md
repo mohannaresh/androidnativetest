@@ -40,7 +40,7 @@ For Mac:
 
     1. Download the project from Github
     
-    2. Open the project in any one of the IDE Ex: Intellij IDE or STS[Eclipse]
+    2. Open the project in any one of the IDE Ex: Intellij IDE or SpringTollSuit[Eclipse]
     
     3. Run below command via terminal or using IDE UI options: 
     
