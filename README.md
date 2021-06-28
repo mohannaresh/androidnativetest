@@ -52,7 +52,6 @@ For Mac:
      4. Right clcik on testNG.xml file present in root of the project
      
      5. Click Run "testNG.xml"
- 
 
 **Framework :**
 
@@ -61,3 +60,8 @@ For Mac:
     2. For test reports i used Extent report listners and created customised reports for all testcases.These reports will be created under "TestResults/TestReports" folder after testsuit run is finished.
     
     3. For failure scenarios screenshots will capture under "TestResults/Screenshots" directory after testsuit run is finished
+    
+**Reason for selecting Appium**
+
+1. To use same codebase for both android and iOS platforms considering scalability, opensource for building automation framework i thought of building this assignment in two ways. one with appium using Java and other with WDIO with typescript
+2. Due to time constraints of other tasks finished appium framework with Java & sharing it for the task assignment
