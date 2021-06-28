@@ -22,24 +22,20 @@ public class TestListener extends Base implements ITestListener {
 		return iTestResult.getMethod().getConstructorOrMethod().getName();
 	}
 
-	
 	public void onStart(ITestContext iTestContext) {
 		log.info("I am in onStart method " + iTestContext.getName());
 		iTestContext.setAttribute("WebDriver", this.driver);
 	}
 
-	
 	public void onFinish(ITestContext iTestContext) {
 		log.info("I am in onFinish method " + iTestContext.getName());
 		ExtentManager.getReporter().flush();
 	}
-	
-	
+
 	public void onTestStart(ITestResult iTestResult) {
 		log.info("I am in onTestStart method " + getTestMethodName(iTestResult) + " start");
 	}
 
-	
 	public void onTestSuccess(ITestResult iTestResult) {
 		log.info("I am in onTestSuccess method " + getTestMethodName(iTestResult) + " succeed");
 		childTest.log(Status.PASS,
@@ -47,7 +43,6 @@ public class TestListener extends Base implements ITestListener {
 
 	}
 
-	
 	public void onTestFailure(ITestResult iTestResult) {
 		log.info("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
 		try {
@@ -60,7 +55,6 @@ public class TestListener extends Base implements ITestListener {
 		}
 	}
 
-	
 	public void onTestSkipped(ITestResult iTestResult) {
 		log.info("I am in onTestSkipped method " + getTestMethodName(iTestResult) + " skipped");
 		childTest.log(Status.SKIP, MarkupHelper.createLabel("Test Cases is Skipped", ExtentColor.ORANGE));

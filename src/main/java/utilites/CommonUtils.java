@@ -6,7 +6,6 @@ import org.nativeapp.androidnativetest.Base;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -14,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CommonUtils extends Base {
-
     public static String captureScreenshot(AppiumDriver driver, String screenName) throws IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
         Date date = new Date();

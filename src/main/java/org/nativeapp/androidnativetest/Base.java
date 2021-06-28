@@ -39,7 +39,6 @@ public class Base {
         ServerSocket serverSocket;
         try {
             serverSocket = new ServerSocket(port);
-
             serverSocket.close();
         } catch (IOException e) {
             isServerRunning = true;
@@ -57,7 +56,6 @@ public class Base {
     public static AndroidDriver<AndroidElement> capabilities(String appName) throws IOException, InterruptedException {
         PropertyReader prop = new PropertyReader();
         Properties property = prop.getProperty(propertyFile, projectsetupFile);
-
         File appDir = new File("apps//");
         File app = new File(appDir, property.getProperty(appName));
         DesiredCapabilities capabilities = new DesiredCapabilities();

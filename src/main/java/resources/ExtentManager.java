@@ -6,17 +6,13 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import utilites.CommonUtils;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class ExtentManager {
-
 	public static ExtentReports extent;
 	public static ExtentHtmlReporter htmlReports;
-
 	public synchronized static ExtentReports getReporter() {
 		if (extent == null) {
 			Date date = new Date();
@@ -27,7 +23,7 @@ public class ExtentManager {
 			extent = new ExtentReports();
 			extent.attachReporter(htmlReports);
 			extent.setAnalysisStrategy(AnalysisStrategy.TEST);
-			htmlReports.config().setReportName("Siddharth test Execution Report");
+			htmlReports.config().setReportName("Native app test execution report");
 			htmlReports.config().setTheme(Theme.STANDARD);
 		}
 		return extent;
