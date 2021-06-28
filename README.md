@@ -35,6 +35,24 @@ For Mac:
     3. Validate that if we click on message box icon then there is text displayed as "Replace with your own action"
     
     4. Validate that if we click on more options[three dots icon] on home page there is text displayed as "Settings"
+    
+**  How to Run the program : **
+
+    1. Download the project from Github
+    
+    2. Open the project in any one of the IDE Ex: Intellij IDE or STS[Eclipse]
+    
+    3. Run below command via terminal or using IDE UI options: 
+    
+        a. mvn clean
+        b. mvn compile
+        c. mvn install
+        d. mvn package
+        
+     4. Right clcik on testNG.xml file present in root of the project
+     
+     5. Click Run "testNG.xml"
+ 
 
 **Framework :**
 
