@@ -1,7 +1,10 @@
 package PageObjects;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.TapOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import org.openqa.selenium.By;
 
 public class HomePage {
@@ -26,13 +29,19 @@ public class HomePage {
     }
 
     public String getTextFromMoreOptions() {
+
         driver.findElementByAccessibilityId(moreOptions).click();
         return driver.findElement(settingsLabel).getText();
     }
 
     public String getTextOnMessageBox() {
-        driver.findElement(messageBox).click();
+        tapOnElement(messageBox);
         return driver.findElement(messageText).getText();
+    }
+
+    public void tapOnElement(By elementToTap){
+        TouchAction t= new TouchAction(driver);
+        t.tap(TapOptions.tapOptions().withElement(element(driver.findElement(elementToTap)))).perform();
     }
 }
 
